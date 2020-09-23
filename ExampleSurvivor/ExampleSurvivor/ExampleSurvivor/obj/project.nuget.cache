@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ypRHSBa882MMjimTHvTfwk645zw8it0rFiyqXyyDcSm87GEzMKEDI/dF2zGrhgi7XYb7tefg+LJ2s1EMQNOeyw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Brandon Howell\\Documents\\GitHub\\ExampleSurvivor\\ExampleSurvivor\\ExampleSurvivor\\ExampleSurvivor\\ExampleSurvivor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Brandon Howell\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Brandon Howell\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

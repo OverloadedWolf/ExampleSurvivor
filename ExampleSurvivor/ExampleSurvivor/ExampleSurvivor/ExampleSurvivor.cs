@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BepInEx;
 using R2API;
 using R2API.Utils;
+using R2API.AssetPlus;
 using EntityStates;
 using EntityStates.ExampleSurvivorStates;
 using RoR2;
@@ -18,8 +19,8 @@ namespace ExampleSurvivor
 
     [BepInDependency("com.bepis.r2api")]
 
-    [BepInPlugin(MODUID, "ExampleSurvivor", "1.0.0")] // put your own name and version here
-    [R2APISubmoduleDependency(nameof(PrefabAPI), nameof(SurvivorAPI), nameof(LoadoutAPI), nameof(ItemAPI), nameof(DifficultyAPI), nameof(BuffAPI))] // need these dependencies for the mod to work properly
+    [BepInPlugin(MODUID, "ExampleSurvivor", "0.0.1")] // put your own name and version here
+    [R2APISubmoduleDependency(nameof(PrefabAPI), nameof(SurvivorAPI), nameof(LoadoutAPI), nameof(ItemAPI), nameof(DifficultyAPI), nameof(AssetPlus))] // need these dependencies for the mod to work properly
 
 
     public class ExampleSurvivor : BaseUnityPlugin
@@ -145,8 +146,8 @@ namespace ExampleSurvivor
             characterMotor.airControl = 0.25f;
             characterMotor.disableAirControlUntilCollision = false;
             characterMotor.generateParametersOnAwake = true;
-            characterMotor.useGravity = true;
-            characterMotor.isFlying = false;
+            //characterMotor.useGravity = true;
+            //characterMotor.isFlying = false;
 
             InputBankTest inputBankTest = characterPrefab.GetComponent<InputBankTest>();
             inputBankTest.moveVector = Vector3.zero;
@@ -348,9 +349,9 @@ namespace ExampleSurvivor
             desc = desc + "< ! > Sample Text 4.</color>" + Environment.NewLine + Environment.NewLine;
 
             // add the language tokens
-            LanguageAPI.Add("EXAMPLESURVIVOR_NAME", "Example Survivor");
-            LanguageAPI.Add("EXAMPLESURVIVOR_DESCRIPTION", desc);
-            LanguageAPI.Add("EXAMPLESURVIVOR_SUBTITLE", "Template for Custom Survivors");
+            Languages.AddToken("EXAMPLESURVIVOR_NAME", "Example Survivor");
+            Languages.AddToken("EXAMPLESURVIVOR_DESCRIPTION", desc);
+            Languages.AddToken("EXAMPLESURVIVOR_SUBTITLE", "Template for Custom Survivors");
 
             // add our new survivor to the game~
             SurvivorDef survivorDef = new SurvivorDef
@@ -399,8 +400,8 @@ namespace ExampleSurvivor
             // set up the passive skill here if you want
             SkillLocator component = characterPrefab.GetComponent<SkillLocator>();
 
-            LanguageAPI.Add("EXAMPLESURVIVOR_PASSIVE_NAME", "Passive");
-            LanguageAPI.Add("EXAMPLESURVIVOR_PASSIVE_DESCRIPTION", "<style=cIsUtility>Doot</style> <style=cIsHealing>doot</style>.");
+            Languages.AddToken("EXAMPLESURVIVOR_PASSIVE_NAME", "Passive");
+            Languages.AddToken("EXAMPLESURVIVOR_PASSIVE_DESCRIPTION", "<style=cIsUtility>Doot</style> <style=cIsHealing>doot</style>.");
 
             component.passiveSkill.enabled = true;
             component.passiveSkill.skillNameToken = "EXAMPLESURVIVOR_PASSIVE_NAME";
@@ -412,8 +413,8 @@ namespace ExampleSurvivor
         {
             SkillLocator component = characterPrefab.GetComponent<SkillLocator>();
 
-            LanguageAPI.Add("EXAMPLESURVIVOR_PRIMARY_CROSSBOW_NAME", "Crossbow");
-            LanguageAPI.Add("EXAMPLESURVIVOR_PRIMARY_CROSSBOW_DESCRIPTION", "Fire an arrow, dealing <style=cIsDamage>200% damage</style>.");
+            Languages.AddToken("EXAMPLESURVIVOR_PRIMARY_CROSSBOW_NAME", "Crossbow");
+            Languages.AddToken("EXAMPLESURVIVOR_PRIMARY_CROSSBOW_DESCRIPTION", "Fire an arrow, dealing <style=cIsDamage>200% damage</style>.");
 
             // set up your primary skill def here!
 
